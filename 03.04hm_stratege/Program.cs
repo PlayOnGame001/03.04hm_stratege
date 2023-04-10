@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace _03._04hm_stratege
 {
-    interface IStrategy
+    interface Stratege
     {
         object Drive();
     }
     class Context
     {
-        private IStrategy strategy;
+        private Stratege strategy;
         public Context() { }
-        public Context(IStrategy strategy)
+        public Context(Stratege strategy)
         {
             this.strategy = strategy;
         }
-        public void SetStrategy(IStrategy strategy)
+        public void SetStrategy(Stratege strategy)
         {
             this.strategy = strategy;
         }
@@ -28,25 +28,25 @@ namespace _03._04hm_stratege
             Console.WriteLine(result);
         }
     }
-    class Bicycle : IStrategy
+    class Cart : Stratege
     {
         public object Drive()
         {
-            return "Drive by bicycle";
+            return "Rdie car";
         }
     }
-    class Bus : IStrategy
+    class Scuter : Stratege
     {
         public object Drive()
         {
-            return "Drive by bus";
+            return "Ride scuter";
         }
     }
-    class Taxi : IStrategy
+    class Porche : Stratege
     {
         public object Drive()
         {
-            return "Drive by taxi";
+            return "Ride Porche";
         }
     }
     internal class Program
@@ -54,7 +54,7 @@ namespace _03._04hm_stratege
         static void Main(string[] args)
         {
             var context = new Context();
-            context.SetStrategy(new Bus());
+            context.SetStrategy(new Scuter());
             context.DoSomeBusinessLogic();
         }
     }
